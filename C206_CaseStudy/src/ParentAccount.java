@@ -1,4 +1,3 @@
-
 public class ParentAccount {
 	
 	private int studentId;
@@ -13,7 +12,6 @@ public class ParentAccount {
 	
 	public ParentAccount(int studentId, String name, int grade, char classLetter, String teacher, String parentName,
 			String parentEmail, String parentAddress, int parentContact) {
-		super();
 		this.studentId = studentId;
 		this.name = name;
 		this.grade = grade;
@@ -86,7 +84,7 @@ public class ParentAccount {
 	}
 
 	public void setParentAddress(String parentAddress) {
-		this.parentAddress = parentAddress;
+		this.parentAddress = parentAddress; 
 	}
 
 	public int getParentContact() {
@@ -99,3 +97,4 @@ public class ParentAccount {
 	
 	
 }
+
