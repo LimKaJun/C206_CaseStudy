@@ -8,7 +8,7 @@ public class ParentAccount {
 	private String parentName;
 	private String parentEmail;
 	private String parentAddress;
-	private int parentContact;
+	private int parentContact; 
 	
 	public ParentAccount(int studentId, String name, int grade, char classLetter, String teacher, String parentName,
 			String parentEmail, String parentAddress, int parentContact) {
