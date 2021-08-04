@@ -9,6 +9,8 @@ public class ParentAccount {
 	private String parentEmail;
 	private String parentAddress;
 	private int parentContact; 
+	private int registrationID;
+	private String ccaRegistered;
 	
 	public ParentAccount(int studentId, String name, int grade, char classLetter, String teacher, String parentName,
 			String parentEmail, String parentAddress, int parentContact) {
@@ -21,6 +23,8 @@ public class ParentAccount {
 		this.parentEmail = parentEmail;
 		this.parentAddress = parentAddress;
 		this.parentContact = parentContact;
+		this.registrationID = 0;
+		this.ccaRegistered = "";
 	}
 
 	public int getStudentId() {
@@ -94,6 +98,24 @@ public class ParentAccount {
 	public void setParentContact(int parentContact) {
 		this.parentContact = parentContact;
 	}
+
+	public int getRegistrationID() {
+		return registrationID;
+	}
+
+	public void setRegistrationID(int registrationID) {
+		this.registrationID = registrationID;
+	}
+
+	public String getCcaRegistered() {
+		return ccaRegistered;
+	}
+
+	public void setCcaRegistered(String ccaRegistered) {
+		this.ccaRegistered = ccaRegistered;
+	}
+	
+	
 	
 	
 }
