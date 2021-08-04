@@ -12,7 +12,7 @@ public class StudentAccount extends Student{
 		this.studentEmail = studentEmail;
 		this.studentAddress = studentAddress;
 		this.studentContact = studentContact;
-		this.registrationID = 0;
+		this.registrationID = -1;
 		this.ccaRegistered = "";
 	}
 

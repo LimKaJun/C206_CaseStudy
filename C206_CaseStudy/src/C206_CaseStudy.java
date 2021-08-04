@@ -50,20 +50,100 @@ public class C206_CaseStudy {
 				String password = Helper.readString("Enter password > ");
 				boolean correct = C206_CaseStudy.staffLogin(username, password, StaffList);
 				if(correct) {
-					option = -1;
-					while(option != 13) {
+					int staffOption = -1;
+					while(staffOption != 13) {
 						C206_CaseStudy.staffMenu();
-						option = Helper.readInt("Enter an option > ");
+						staffOption = Helper.readInt("Enter an option > ");
+						if(staffOption == 1) {
+							
+						}else if(staffOption==2) {
+							
+						}else if(staffOption==3) {
+							
+						}else if(staffOption==4) {
+							
+						}else if(staffOption==5) {
+							
+						}else if(staffOption==6) {
+							
+						}else if(staffOption==7) {
+							
+						}else if(staffOption==8) {
+							
+						}else if(staffOption==9) {
+							
+						}else if(staffOption==10) {
+							
+						}else if(staffOption==11) {
+							
+						}else if(staffOption==12) {
+							
+						}else if(staffOption==13) {
+							
+						}
 					}
 				}else {
 					System.out.println("Username and password invalid!");
 				}
 			}else if(option ==2) {
-				
+				int registrationID = Helper.readInt("Enter Registration ID > ");
+				boolean correct = C206_CaseStudy.accountLogin(registrationID, ParentAccountList, StudentAccountList);
+				if(correct) {
+					int accountOption = -1;
+					while(accountOption != 4) {
+						C206_CaseStudy.accountMenu();
+						accountOption = Helper.readInt("Enter an option > ");
+						if(accountOption ==1) {
+							
+						}else if(accountOption ==2) {
+							
+						}else if(accountOption ==3) {
+							
+						}
+					}
+				}else {
+					System.out.println("Registration ID invalid!");
+				}
 			}else if(option ==3) {
+				int studentId = Helper.readInt("Enter student ID > ");
+				if(C206_CaseStudy.checkStudentId(studentId, StudentList)) {
+					if(C206_CaseStudy.checkRegistration(studentId, ParentAccountList, StudentAccountList)) {
+						String name = Helper.readString("Enter Name > ");
+						int grade = Helper.readInt("Enter grade > ");
+						char classLetter = Helper.readChar("Enter Class > ");
+						String teacher = Helper.readString("Enter teacher's name > ");
+						String parentName = Helper.readString("Enter parent's name > ");
+						String parentEmail = Helper.readString("Enter parent's email > ");
+						String parentAddress = Helper.readString("Enter parent's address > ");
+						int parentContact = Helper.readInt("Enter parent's contact > ");
+						C206_CaseStudy.addParentAccount(studentId, name, grade, classLetter, teacher, parentName, parentEmail, parentAddress, parentContact, ParentAccountList);
+						System.out.println("Your registration ID have been sent to your email.");
+					}else {
+						System.out.println("This student ID has already registered an account.");
+					}
+				}else {
+					System.out.println("Student ID does not exist.");
+				}
 				
 			}else if(option ==4) {
-				
+				int studentId = Helper.readInt("Enter student ID > ");
+				if(C206_CaseStudy.checkStudentId(studentId, StudentList)) {
+					if(C206_CaseStudy.checkRegistration(studentId, ParentAccountList, StudentAccountList)) {
+						String name = Helper.readString("Enter Name > ");
+						int grade = Helper.readInt("Enter grade > ");
+						char classLetter = Helper.readChar("Enter Class > ");
+						String teacher = Helper.readString("Enter teacher's name > ");
+						String studentEmail = Helper.readString("Enter parent's email > ");
+						String studentAddress = Helper.readString("Enter parent's address > ");
+						int studentContact = Helper.readInt("Enter parent's contact > ");
+						C206_CaseStudy.addStudentAccount(studentId, name, grade, classLetter, teacher, studentEmail, studentAddress, studentContact, StudentAccountList);
+						System.out.println("Your registration ID have been sent to your email.");
+					}else {
+						System.out.println("This student ID has already registered an account.");
+					}
+				}else {
+					System.out.println("Student ID does not exist.");
+				}
 			}
 		}
 		
@@ -108,6 +188,64 @@ public class C206_CaseStudy {
 		System.out.println("13. Quit");
 
 		Helper.line(80, "-");
+	}
+	
+	public static boolean accountLogin(int registrationID,ArrayList<ParentAccount> pa,ArrayList<StudentAccount> sa) {
+		for(int i = 0;i <pa.size();i++) {
+			if(registrationID == pa.get(i).getRegistrationID()) {
+				return true;
+			}
+		}
+		for(int i = 0;i <sa.size();i++) {
+			if(registrationID == sa.get(i).getRegistrationID()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static void accountMenu() {
+		C206_CaseStudy.setHeader("USER MENU");
+		System.out.println("1. Register for CCA");
+		System.out.println("2. View Details of current CCA");
+		System.out.println("3. Drop out of current CCA");
+		System.out.println("4. Quit");
+		Helper.line(80, "-");
+	}
+	
+	public static boolean checkStudentId(int studentId,ArrayList<Student> sa) {
+		for(int i = 0; i < sa.size();i ++) {
+			if(studentId == sa.get(i).getStudentId()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static boolean checkRegistration(int studentId,ArrayList<ParentAccount> pa,ArrayList<StudentAccount> sa) {
+		for(int i = 0;i <pa.size();i++) {
+			if(studentId == pa.get(i).getRegistrationID()) {
+				return false;
+			}
+		}
+		for(int i = 0;i <sa.size();i++) {
+			if(studentId == sa.get(i).getRegistrationID()) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public static void addParentAccount(int studentId,String name,int grade,char classLetter,String teacher,String parentName,String parentEmail,String parentAddress,int parentContact,ArrayList<ParentAccount> ParentAccountList) {
+		ParentAccount parentAccount = new ParentAccount(studentId,name,grade,classLetter,teacher,parentName,parentEmail,parentAddress,parentContact);
+		ParentAccountList.add(parentAccount);
+		parentAccount.setRegistrationID(ParentAccountList.size());
+	}
+	
+	public static void addStudentAccount(int studentId,String name,int grade,char classLetter,String teacher,String studentEmail,String studentAddress,int studentContact,ArrayList<StudentAccount> StudentAccountList) {
+		StudentAccount studentAccount = new StudentAccount(studentId,name,grade,classLetter,teacher,studentEmail,studentAddress,studentContact);
+		StudentAccountList.add(studentAccount);
+		studentAccount.setRegistrationID(StudentAccountList.size());
 	}
 	
 	public static void setHeader(String header) {

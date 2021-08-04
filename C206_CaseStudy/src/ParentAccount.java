@@ -12,6 +12,7 @@ public class ParentAccount {
 	private int registrationID;
 	private String ccaRegistered;
 	
+	
 	public ParentAccount(int studentId, String name, int grade, char classLetter, String teacher, String parentName,
 			String parentEmail, String parentAddress, int parentContact) {
 		this.studentId = studentId;
@@ -23,7 +24,7 @@ public class ParentAccount {
 		this.parentEmail = parentEmail;
 		this.parentAddress = parentAddress;
 		this.parentContact = parentContact;
-		this.registrationID = 0;
+		this.registrationID = -1;
 		this.ccaRegistered = "";
 	}
 
