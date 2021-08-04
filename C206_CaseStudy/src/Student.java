@@ -1,58 +1,63 @@
 
 public class Student {
 	
-	private String student_id;
-	private String grade;
-	private String student_class;
-	private String form_teacher;
+	private int studentId;
+	private String name;
+	private int grade;
+	private char classLetter;
+	private String teacher;
 	
-	
-	public Student(String student_id, String grade, String student_class, String form_teacher) {
-		this.student_id = student_id;
+	public Student(int studentId, String name, int grade, char classLetter, String teacher) {
+		this.studentId = studentId;
+		this.name = name;
 		this.grade = grade;
-		this.student_class = student_class;
-		this.form_teacher = form_teacher;
+		this.classLetter = classLetter;
+		this.teacher = teacher;
 	}
 
-
-	public String getStudent_id() {
-		return student_id;
+	public int getStudentId() {
+		return studentId;
 	}
 
-
-	public void setStudent_id(String student_id) {
-		this.student_id = student_id;
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
 	}
 
+	public String getName() {
+		return name;
+	}
 
-	public String getGrade() {
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getGrade() {
 		return grade;
 	}
 
-
-	public void setGrade(String grade) {
+	public void setGrade(int grade) {
 		this.grade = grade;
 	}
 
-
-	public String getStudent_class() {
-		return student_class;
+	public char getClassLetter() {
+		return classLetter;
 	}
 
-
-	public void setStudent_class(String student_class) {
-		this.student_class = student_class;
+	public void setClassLetter(char classLetter) {
+		this.classLetter = classLetter;
 	}
 
-
-	public String getForm_teacher() {
-		return form_teacher;
+	public String getTeacher() {
+		return teacher;
 	}
 
-
-	public void setForm_teacher(String form_teacher) {
-		this.form_teacher = form_teacher;
+	public void setTeacher(String teacher) {
+		this.teacher = teacher;
 	}
+	
+	
+	
+	
 
 
 }

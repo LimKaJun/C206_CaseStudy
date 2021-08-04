@@ -8,9 +8,10 @@ public class CCA {
 	private String time;
 	private String venue;
 	private String instructorName;
+	private String category;
 	
 	public CCA(String title, String description, int classSize, String dayOfWeek, String time, String venue,
-			String instructorName) {
+			String instructorName,String category) {
 		this.title = title;
 		this.description = description;
 		this.classSize = classSize;
@@ -18,6 +19,7 @@ public class CCA {
 		this.time = time;
 		this.venue = venue;
 		this.instructorName = instructorName;
+		this.category = category;
 	}
 
 	public String getTitle() {
@@ -75,4 +77,13 @@ public class CCA {
 	public void setInstructorName(String instructorName) {
 		this.instructorName = instructorName;
 	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	
 }
