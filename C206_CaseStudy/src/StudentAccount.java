@@ -13,7 +13,7 @@ public class StudentAccount extends Student{
 		this.studentAddress = studentAddress;
 		this.studentContact = studentContact;
 		this.registrationID = -1;
-		this.ccaRegistered = "";
+		this.ccaRegistered = "NONE";
 	}
 
 	public String getStudentEmail() {

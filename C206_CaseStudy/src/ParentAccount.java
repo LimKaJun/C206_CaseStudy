@@ -25,7 +25,7 @@ public class ParentAccount {
 		this.parentAddress = parentAddress;
 		this.parentContact = parentContact;
 		this.registrationID = -1;
-		this.ccaRegistered = "";
+		this.ccaRegistered = "NONE";
 	}
 
 	public int getStudentId() {
