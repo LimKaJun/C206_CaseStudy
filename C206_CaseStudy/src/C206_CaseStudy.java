@@ -269,7 +269,7 @@ public class C206_CaseStudy {
 //			}
 //		}
 //		System.out.println("=======successfully added=======");
-//	}
+//	} I have yet to understand wat i writing.. just referring to the other codes 
 	
 	//-------------------------------------------Add Parent Account-------------------------------------------------//
 	public static void addParentAccount(int studentId, String name, int grade, char classLetter, String teacher,
