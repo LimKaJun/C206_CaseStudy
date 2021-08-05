@@ -167,7 +167,7 @@ public class C206_CaseStudy {
 
 	}
 
-	//-----------------------Menu---------------------------//
+	// -----------------------Menu---------------------------//
 	public static void menu() {
 		C206_CaseStudy.setHeader("CCA REGISTRATION SYSTEM");
 		System.out.println("1. Login as Staff");
@@ -178,7 +178,8 @@ public class C206_CaseStudy {
 		Helper.line(80, "-");
 	}
 
-	//---------------------------------------Staff Login------------------------------------------------//
+	// ---------------------------------------Staff
+	// Login------------------------------------------------//
 	public static boolean staffLogin(String username, String password, ArrayList<Staff> StaffList) {
 		for (int i = 0; i < StaffList.size(); i++) {
 			if (StaffList.get(i).getUsername().equals(username) && StaffList.get(i).getPassword().equals(password)) {
@@ -188,7 +189,7 @@ public class C206_CaseStudy {
 		return false;
 	}
 
-	//------------------Staff Menu--------------//
+	// ------------------Staff Menu--------------//
 	public static void staffMenu() {
 		C206_CaseStudy.setHeader("STAFF MENU");
 		System.out.println("1. Add Student");
@@ -208,7 +209,8 @@ public class C206_CaseStudy {
 		Helper.line(80, "-");
 	}
 
-	//------------------------------------------------Account Login------------------------------------------------------//
+	// ------------------------------------------------Account
+	// Login------------------------------------------------------//
 	public static boolean accountLogin(int registrationID, ArrayList<ParentAccount> pa, ArrayList<StudentAccount> sa) {
 		for (int i = 0; i < pa.size(); i++) {
 			if (registrationID == pa.get(i).getRegistrationID()) {
@@ -223,7 +225,7 @@ public class C206_CaseStudy {
 		return false;
 	}
 
-	//-------------------Account Menu------------------//
+	// -------------------Account Menu------------------//
 	public static void accountMenu() {
 		C206_CaseStudy.setHeader("USER MENU");
 		System.out.println("1. Register for CCA");
@@ -233,7 +235,8 @@ public class C206_CaseStudy {
 		Helper.line(80, "-");
 	}
 
-	//--------------------------Check Student Id----------------------------------//
+	// --------------------------Check Student
+	// Id----------------------------------//
 	public static boolean checkStudentId(int studentId, ArrayList<Student> sa) {
 		for (int i = 0; i < sa.size(); i++) {
 			if (studentId == sa.get(i).getStudentId()) {
@@ -243,7 +246,8 @@ public class C206_CaseStudy {
 		return false;
 	}
 
-	//----------------------------------------------Check Registration---------------------------------------------------//
+	// ----------------------------------------------Check
+	// Registration---------------------------------------------------//
 	public static boolean checkRegistration(int studentId, ArrayList<ParentAccount> pa, ArrayList<StudentAccount> sa) {
 		for (int i = 0; i < pa.size(); i++) {
 			if (studentId == pa.get(i).getRegistrationID()) {
@@ -258,7 +262,8 @@ public class C206_CaseStudy {
 		return true;
 	}
 
-	//-------------------------------------------Add student-------------------------------------------------//
+	// -------------------------------------------Add
+	// student-------------------------------------------------//
 //	public static void addStudent(int studentId, String name, int grade, char classLetter, String teacher,
 //			ArrayList<Student> studentList) {
 //		Student studentList = new studentList(name, grade, classLetter, teacher);
@@ -271,36 +276,52 @@ public class C206_CaseStudy {
 //		}
 //		System.out.println("=======successfully added=======");
 //	} I have yet to understand wat i writing.. just referring to the other codes 
-	
-	//-------------------------------------------Add Parent Account-------------------------------------------------//
+
+	// -------------------------------------------Add Parent
+	// Account-------------------------------------------------//
 	public static void addParentAccount(int studentId, String name, int grade, char classLetter, String teacher,
 			String parentName, String parentEmail, String parentAddress, int parentContact,
 			ArrayList<ParentAccount> ParentAccountList) {
 		ParentAccount parentAccount = new ParentAccount(studentId, name, grade, classLetter, teacher, parentName,
 				parentEmail, parentAddress, parentContact);
 		ParentAccountList.add(parentAccount);
-		int id = -1;
-		for (int i = 0; i < ParentAccountList.size(); i++) {
-			if (ParentAccountList.get(i).equals(null)) {
-				id = i;
+		Random rand = new Random();
+		int id = rand.nextInt(90000) + 10000;
+		boolean exist = true;
+		while (exist == true) {
+			exist = false;
+			for (int i = 0; i < ParentAccountList.size(); i++) {
+				if (ParentAccountList.get(i).getRegistrationID() == id) {
+					id = i;
+					exist = true;
+				}
 			}
 		}
+		
 		parentAccount.setRegistrationID(id);
 	}
 
-	//------------------------------------------Add Student Account----------------------------------------------//
+	// ------------------------------------------Add Student
+	// Account----------------------------------------------//
 	public static void addStudentAccount(int studentId, String name, int grade, char classLetter, String teacher,
 			String studentEmail, String studentAddress, int studentContact,
 			ArrayList<StudentAccount> StudentAccountList) {
 		StudentAccount studentAccount = new StudentAccount(studentId, name, grade, classLetter, teacher, studentEmail,
 				studentAddress, studentContact);
 		StudentAccountList.add(studentAccount);
-		int id = -1;
-		for (int i = 0; i < StudentAccountList.size(); i++) {
-			if (StudentAccountList.get(i).equals(null)) {
-				id = i;
+		Random rand = new Random();
+		int id = rand.nextInt(90000) + 10000;
+		boolean exist = true;
+		while (exist == true) {
+			exist = false;
+			for (int i = 0; i < StudentAccountList.size(); i++) {
+				if (StudentAccountList.get(i).getRegistrationID() == id) {
+					id = i;
+					exist = true;
+				}
 			}
 		}
+		
 		studentAccount.setRegistrationID(id);
 	}
 
@@ -357,7 +378,8 @@ public class C206_CaseStudy {
 		return output;
 	}
 
-	//-------------------------------------Delete Parent Account---------------------------------------------//
+	// -------------------------------------Delete Parent
+	// Account---------------------------------------------//
 	public static void deleteParentAccount(ArrayList<ParentAccount> ParentAccountList, int registrationId) {
 		boolean removed = false;
 		int accountRemoved = 0;
@@ -376,7 +398,8 @@ public class C206_CaseStudy {
 		}
 	}
 
-	//----------------------------------------Delete Student Account--------------------------------------------//
+	// ----------------------------------------Delete Student
+	// Account--------------------------------------------//
 	public static void deleteStudentAccount(ArrayList<StudentAccount> StudentAccountList, int registrationId) {
 		boolean removed = false;
 		int accountRemoved = 0;
