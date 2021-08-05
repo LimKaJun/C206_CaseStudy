@@ -284,40 +284,38 @@ public class C206_CaseStudy {
 	public static void addParentAccount(ParentAccount parentAccount,
 		ArrayList<ParentAccount> ParentAccountList) {
 		ParentAccountList.add(parentAccount);
-		Random rand = new Random();
-		int id = rand.nextInt(90000) + 10000;
 		boolean exist = true;
-		while (exist == true) {
-			exist = false;
-			for (int i = 0; i < ParentAccountList.size(); i++) {
-				if (ParentAccountList.get(i).getRegistrationID() == id) {
-					exist = true;
+		int i = 0;
+		while(exist==true) {
+			exist=false;
+			for(int j=0;j < ParentAccountList.size();j++) {
+				if(ParentAccountList.get(i).getRegistrationID()==i) {
+					exist=true;
 				}
 			}
+			i++;
 		}
 
-		parentAccount.setRegistrationID(id);
+		parentAccount.setRegistrationID(i);
 	}
 
 	// ------------------------------------------Add Student Account------------------------------------------//
 	public static void addStudentAccount(StudentAccount studentAccount,
 			ArrayList<StudentAccount> StudentAccountList) {
 		StudentAccountList.add(studentAccount);
-		Random rand = new Random();
-		int id = rand.nextInt(90000) + 10000;
 		boolean exist = true;
-		while (exist == true) {
-			exist = false;
-			for (int i = 0; i < StudentAccountList.size(); i++) {
-				if (StudentAccountList.get(i).getRegistrationID() == id) {
-					id = i;
-					exist = true;
+		int i = 0;
+		while(exist==true) {
+			exist=false;
+			for(int j=0;j < StudentAccountList.size();j++) {
+				if(StudentAccountList.get(i).getRegistrationID()==i) {
+					exist=true;
 				}
 			}
+			i++;
 		}
 
-		studentAccount.setRegistrationID(id);
-	}
+		studentAccount.setRegistrationID(i);
 	
 	// ------------------------------------------View Student List------------------------------------------//
 	public static void viewStudent(ArrayList<Student> studentList) {
