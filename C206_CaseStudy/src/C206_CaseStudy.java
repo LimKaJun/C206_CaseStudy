@@ -32,12 +32,12 @@ public class C206_CaseStudy {
 		StudentList.add(new Student(1, "Aseerah", 4, 'D', "Jason"));
 		StudentList.add(new Student(2, "Faith", 2, 'A', "James"));
 
-		ParentAccount pa = new ParentAccount(0, "Aloysius", 3, 'C', "Desmond", "Mary", "mary@gmail.com",
+		ParentAccount pa = new ParentAccount(0, "Aloysius", 12345, 'C', "Desmond", "Mary", "mary@gmail.com",
 				"Pasir Ris Avenue 3 520511", 91234567);
 		pa.setRegistrationID(12345);
 		ParentAccountList.add(pa);
 
-		StudentAccount sa = new StudentAccount(1, "Aseerah", 4, 'D', "Jason", "aseerah@gmail.com",
+		StudentAccount sa = new StudentAccount(1, "Aseerah", 54321, 'D', "Jason", "aseerah@gmail.com",
 				"Pasir Ris Avenue 6 520522", 98765432);
 		sa.setRegistrationID(54321);
 		sa.setCcaRegistered("Soccer");
@@ -304,33 +304,36 @@ public class C206_CaseStudy {
 		studentAccount.setRegistrationID(id);
 	}
 
-	//-----------------------------View Parent Account----------------------------------//
+	// -----------------------------View Parent
+	// Account----------------------------------//
 	public static void viewParentAccount(ArrayList<ParentAccount> ParentAccountList) {
 		C206_CaseStudy.setHeader("PARENT ACCOUNT LIST");
-		String output = String.format("%-10s %-25s %-10s %-10s %-25s %-25s %-25s %-25s %-10s %-10s %-20s \n", "STUDENT ID",
-				"NAME", "GRADE", "CLASS", "TEACHER", "PARENT NAME", "PARENT EMAIL", "PARENT ADDRESS", "PARENT CONTACT",
-				"REGISTRATION ID", "CCA REGISTERED");
+		String output = String.format("%-10s %-15s %-10s %-10s %-15s %-15s %-20s %-30s %-15s %-20s %-15s \n",
+				"STUDENT ID", "NAME", "GRADE", "CLASS", "TEACHER", "PARENT NAME", "PARENT EMAIL", "PARENT ADDRESS",
+				"PARENT CONTACT", "REGISTRATION ID", "CCA REGISTERED");
 		output += C206_CaseStudy.retrieveAllParentAccount(ParentAccountList);
 		System.out.println(output);
 	}
 
-	//-------------------------------View Student Account----------------------------------//
+	// -------------------------------View Student
+	// Account----------------------------------//
 	public static void viewStudentAccount(ArrayList<StudentAccount> StudentAccountList) {
 		C206_CaseStudy.setHeader("STUDENT ACCOUNT LIST");
-		String output = String.format("%-10s %-25s %-10s %-10s %-25s %-25s %-25s %-10s %-10s %-20s \n", "STUDENT ID", "NAME",
-				"GRADE", "CLASS", "TEACHER", "STUDENT EMAIL", "STUDENT ADDRESS", "STUDENT CONTACT", "REGISTRATION ID",
-				"CCA REGISTERED");
+		String output = String.format("%-10s %-15s %-10s %-10s %-15s %-20s %-30s %-15s %-20s %-15s \n", "STUDENT ID",
+				"NAME", "GRADE", "CLASS", "TEACHER", "STUDENT EMAIL", "STUDENT ADDRESS", "STUDENT CONTACT",
+				"REGISTRATION ID", "CCA REGISTERED");
 		output += C206_CaseStudy.retrieveAllStudentAccount(StudentAccountList);
 		System.out.println(output);
 	}
 
-	//--------------------------------Retrieve All Parent Account------------------------------------//
+	// --------------------------------Retrieve All Parent
+	// Account------------------------------------//
 	public static String retrieveAllParentAccount(ArrayList<ParentAccount> ParentAccountList) {
 		String output = "";
 		for (int i = 0; i < ParentAccountList.size(); i++) {
-			output += String.format("%-10d %-25s %-10d %-10c %-25s %-25s %-25s %-25s %-10d %-10d %-25s \n",
+			output += String.format("%-10d %-15s %-10d %-10c %-15s %-15s %-20s %-30s %-15d %-20d %-15s \n",
 					ParentAccountList.get(i).getStudentId(), ParentAccountList.get(i).getName(),
-					ParentAccountList.get(i).getGrade(), ParentAccountList.get(i).getClass(),
+					ParentAccountList.get(i).getGrade(), ParentAccountList.get(i).getClassLetter(),
 					ParentAccountList.get(i).getTeacher(), ParentAccountList.get(i).getParentName(),
 					ParentAccountList.get(i).getParentEmail(), ParentAccountList.get(i).getParentAddress(),
 					ParentAccountList.get(i).getParentContact(), ParentAccountList.get(i).getRegistrationID(),
@@ -339,13 +342,14 @@ public class C206_CaseStudy {
 		return output;
 	}
 
-	//------------------------------Retrieve All Student Account---------------------------------------//
+	// ------------------------------Retrieve All Student
+	// Account---------------------------------------//
 	public static String retrieveAllStudentAccount(ArrayList<StudentAccount> StudentAccountList) {
 		String output = "";
 		for (int i = 0; i < StudentAccountList.size(); i++) {
-			output += String.format("%-10d %-25s %-10d %-10c %-25s %-25s %-25s %-10d %-10d %-25s \n",
+			output += String.format("%-10s %-15s %-10s %-10s %-15s %-20s %-30s %-15s %-20s %-15s \n",
 					StudentAccountList.get(i).getStudentId(), StudentAccountList.get(i).getName(),
-					StudentAccountList.get(i).getGrade(), StudentAccountList.get(i).getClass(),
+					StudentAccountList.get(i).getGrade(), StudentAccountList.get(i).getClassLetter(),
 					StudentAccountList.get(i).getTeacher(), StudentAccountList.get(i).getStudentEmail(),
 					StudentAccountList.get(i).getStudentAddress(), StudentAccountList.get(i).getStudentContact(),
 					StudentAccountList.get(i).getRegistrationID(), StudentAccountList.get(i).getCcaRegistered());
