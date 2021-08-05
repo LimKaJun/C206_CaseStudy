@@ -294,7 +294,6 @@ public class C206_CaseStudy {
 			exist = false;
 			for (int i = 0; i < ParentAccountList.size(); i++) {
 				if (ParentAccountList.get(i).getRegistrationID() == id) {
-					id = i;
 					exist = true;
 				}
 			}
