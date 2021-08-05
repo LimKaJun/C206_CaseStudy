@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class C206_CaseStudy {
 
@@ -33,12 +34,12 @@ public class C206_CaseStudy {
 
 		ParentAccount pa = new ParentAccount(0, "Aloysius", 3, 'C', "Desmond", "Mary", "mary@gmail.com",
 				"Pasir Ris Avenue 3 520511", 91234567);
-		pa.setRegistrationID(0);
+		pa.setRegistrationID(12345);
 		ParentAccountList.add(pa);
 
 		StudentAccount sa = new StudentAccount(1, "Aseerah", 4, 'D', "Jason", "aseerah@gmail.com",
 				"Pasir Ris Avenue 6 520522", 98765432);
-		sa.setRegistrationID(1);
+		sa.setRegistrationID(54321);
 		sa.setCcaRegistered("Soccer");
 		StudentAccountList.add(sa);
 
