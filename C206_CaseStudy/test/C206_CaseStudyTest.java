@@ -58,9 +58,9 @@ public class C206_CaseStudyTest {
 
 		allParentAccount = C206_CaseStudy.retrieveAllParentAccount(ParentAccountList);
 		test = String.format("%-15d %-15s %-10d %-10c %-15s %-15s %-20s %-30s %-15d %-20d %-15s \n", 0, "Aloysius", 12345, 'C', "Desmond", "Mary", "mary@gmail.com",
-						"Pasir Ris Avenue 3 520511", 91234567,0,"NONE");
+						"Pasir Ris Avenue 3 520511", 91234567,1,"NONE");
 		test += String.format("%-15d %-15s %-10d %-10c %-15s %-15s %-20s %-30s %-15d %-20d %-15s \n", 1, "Aseerah", 54321, 'D', "Desmond" ,"Jason", "aseerah@gmail.com",
-						"Pasir Ris Avenue 6 520522", 98765432,1,"NONE");
+						"Pasir Ris Avenue 6 520522", 98765432,2,"NONE");
 		assertEquals(test,allParentAccount);
 
 	}
@@ -72,12 +72,12 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addParentAccount(parentAccount2, ParentAccountList);
 
 		assertEquals(2,ParentAccountList.size());
-		C206_CaseStudy.deleteParentAccount(ParentAccountList,12345);
+		C206_CaseStudy.deleteParentAccount(ParentAccountList,1);
 		assertEquals(1,ParentAccountList.size());
 		
 		assertNotEquals(parentAccount1,ParentAccountList.get(0));
 		
-		C206_CaseStudy.deleteParentAccount(ParentAccountList,54321);
+		C206_CaseStudy.deleteParentAccount(ParentAccountList,2);
 		assertEquals(0,ParentAccountList.size());
 
 	}
