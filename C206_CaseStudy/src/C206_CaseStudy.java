@@ -69,6 +69,9 @@ public class C206_CaseStudy {
 							System.out.println("=======successfully added=======");
 							
 						} else if (staffOption == 2) {
+							C206_CaseStudy.viewStudent(StudentList);
+							System.out.println("=======successfully viewing=======");
+
 
 						} else if (staffOption == 3) {
 
@@ -322,11 +325,20 @@ public class C206_CaseStudy {
 
 		studentAccount.setRegistrationID(id);
 	}
+	
+	// ------------------------------------------View Student List------------------------------------------//
+	public static void viewStudent(ArrayList<Student> studentList) {
+		C206_CaseStudy.setHeader("STUDENT LIST");
+		String output = String.format("%-15s %-15s %-10s %-10s %-15s \n", "STUDENT ID",
+				"NAME", "GRADE", "CLASS", "TEACHER");
+		output += C206_CaseStudy.retrieveAllStudent(studentList);
+		System.out.println(output);
+	}
 
 	// ------------------------------------------View Parent Account------------------------------------------//
 	public static void viewParentAccount(ArrayList<ParentAccount> ParentAccountList) {
 		C206_CaseStudy.setHeader("PARENT ACCOUNT LIST");
-		String output = String.format("%-10s %-15s %-10s %-10s %-15s %-15s %-20s %-30s %-15s %-20s %-15s \n",
+		String output = String.format("%-15s %-15s %-10s %-10s %-15s %-15s %-20s %-30s %-15s %-20s %-15s \n",
 				"STUDENT ID", "NAME", "GRADE", "CLASS", "TEACHER", "PARENT NAME", "PARENT EMAIL", "PARENT ADDRESS",
 				"PARENT CONTACT", "REGISTRATION ID", "CCA REGISTERED");
 		output += C206_CaseStudy.retrieveAllParentAccount(ParentAccountList);
@@ -336,18 +348,31 @@ public class C206_CaseStudy {
 	// ------------------------------------------View Student Account------------------------------------------//
 	public static void viewStudentAccount(ArrayList<StudentAccount> StudentAccountList) {
 		C206_CaseStudy.setHeader("STUDENT ACCOUNT LIST");
-		String output = String.format("%-10s %-15s %-10s %-10s %-15s %-20s %-30s %-15s %-20s %-15s \n", "STUDENT ID",
+		String output = String.format("%-15s %-15s %-10s %-10s %-15s %-20s %-30s %-15s %-20s %-15s \n", "STUDENT ID",
 				"NAME", "GRADE", "CLASS", "TEACHER", "STUDENT EMAIL", "STUDENT ADDRESS", "STUDENT CONTACT",
 				"REGISTRATION ID", "CCA REGISTERED");
 		output += C206_CaseStudy.retrieveAllStudentAccount(StudentAccountList);
 		System.out.println(output);
 	}
+	
+	// ------------------------------------------Retrieve All student List------------------------------------------//
 
+	public static String retrieveAllStudent(ArrayList<Student> studentList) {
+		String output = "";
+		for (int i = 0; i < studentList.size(); i++) {
+			output += String.format("%-15s %-15s %-10s %-10s %-15s \n",
+					studentList.get(i).getStudentId(), studentList.get(i).getName(),
+					studentList.get(i).getGrade(), studentList.get(i).getClassLetter(),
+					studentList.get(i).getTeacher());
+		}
+		return output;
+	}
+	
 	// ------------------------------------------Retrieve All Parent Account------------------------------------------//
 	public static String retrieveAllParentAccount(ArrayList<ParentAccount> ParentAccountList) {
 		String output = "";
 		for (int i = 0; i < ParentAccountList.size(); i++) {
-			output += String.format("%-10d %-15s %-10d %-10c %-15s %-15s %-20s %-30s %-15d %-20d %-15s \n",
+			output += String.format("%-15d %-15s %-10d %-10c %-15s %-15s %-20s %-30s %-15d %-20d %-15s \n",
 					ParentAccountList.get(i).getStudentId(), ParentAccountList.get(i).getName(),
 					ParentAccountList.get(i).getGrade(), ParentAccountList.get(i).getClassLetter(),
 					ParentAccountList.get(i).getTeacher(), ParentAccountList.get(i).getParentName(),
@@ -362,7 +387,7 @@ public class C206_CaseStudy {
 	public static String retrieveAllStudentAccount(ArrayList<StudentAccount> StudentAccountList) {
 		String output = "";
 		for (int i = 0; i < StudentAccountList.size(); i++) {
-			output += String.format("%-10s %-15s %-10s %-10s %-15s %-20s %-30s %-15s %-20s %-15s \n",
+			output += String.format("%-15s %-15s %-10s %-10s %-15s %-20s %-30s %-15s %-20s %-15s \n",
 					StudentAccountList.get(i).getStudentId(), StudentAccountList.get(i).getName(),
 					StudentAccountList.get(i).getGrade(), StudentAccountList.get(i).getClassLetter(),
 					StudentAccountList.get(i).getTeacher(), StudentAccountList.get(i).getStudentEmail(),
