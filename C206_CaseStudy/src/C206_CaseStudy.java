@@ -70,8 +70,6 @@ public class C206_CaseStudy {
 							
 						} else if (staffOption == 2) {
 							C206_CaseStudy.viewStudent(StudentList);
-							System.out.println("=======successfully viewing=======");
-
 
 						} else if (staffOption == 3) {
 
