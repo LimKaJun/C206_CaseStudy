@@ -106,16 +106,14 @@ public class C206_CaseStudy {
 				boolean correct = C206_CaseStudy.accountLogin(registrationID, ParentAccountList, StudentAccountList);
 				if (correct) {
 					int accountOption = -1;
-					while (accountOption != 4) {
+					while (accountOption != 3) {
 						C206_CaseStudy.accountMenu();
 						accountOption = Helper.readInt("Enter an option > ");
 						if (accountOption == 1) {
 
 						} else if (accountOption == 2) {
 
-						} else if (accountOption == 3) {
-
-						}
+						} 
 					}
 				} else {
 					System.out.println("Registration ID invalid!");
@@ -230,8 +228,7 @@ public class C206_CaseStudy {
 		C206_CaseStudy.setHeader("USER MENU");
 		System.out.println("1. Register for CCA");
 		System.out.println("2. View Details of current CCA");
-		System.out.println("3. Drop out of current CCA");
-		System.out.println("4. Quit");
+		System.out.println("3. Quit");
 		Helper.line(80, "-");
 	}
 
