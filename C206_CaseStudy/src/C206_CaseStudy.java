@@ -139,8 +139,9 @@ public class C206_CaseStudy {
 						String parentEmail = Helper.readString("Enter parent's email > ");
 						String parentAddress = Helper.readString("Enter parent's address > ");
 						int parentContact = Helper.readInt("Enter parent's contact > ");
-						C206_CaseStudy.addParentAccount(studentId, name, grade, classLetter, teacher, parentName,
-								parentEmail, parentAddress, parentContact, ParentAccountList);
+						ParentAccount parentAccount = new ParentAccount(studentId, name, grade, classLetter, teacher, parentName,
+								parentEmail, parentAddress, parentContact);
+						C206_CaseStudy.addParentAccount(parentAccount, ParentAccountList);
 						System.out.println("Your registration ID have been sent to your email.");
 					} else {
 						System.out.println("This student ID has already registered an account.");
@@ -157,11 +158,12 @@ public class C206_CaseStudy {
 						int grade = Helper.readInt("Enter grade > ");
 						char classLetter = Helper.readChar("Enter Class > ");
 						String teacher = Helper.readString("Enter teacher's name > ");
-						String studentEmail = Helper.readString("Enter parent's email > ");
-						String studentAddress = Helper.readString("Enter parent's address > ");
-						int studentContact = Helper.readInt("Enter parent's contact > ");
-						C206_CaseStudy.addStudentAccount(studentId, name, grade, classLetter, teacher, studentEmail,
-								studentAddress, studentContact, StudentAccountList);
+						String studentEmail = Helper.readString("Enter email > ");
+						String studentAddress = Helper.readString("Enter address > ");
+						int studentContact = Helper.readInt("Enter contact > ");
+						StudentAccount studentAccount = new StudentAccount(studentId, name, grade, classLetter, teacher, studentEmail,
+								studentAddress, studentContact);
+						C206_CaseStudy.addStudentAccount(studentAccount, StudentAccountList);
 						System.out.println("Your registration ID have been sent to your email.");
 					} else {
 						System.out.println("This student ID has already registered an account.");
@@ -279,11 +281,8 @@ public class C206_CaseStudy {
 	} 
 
 	// ------------------------------------------Add Parent Account------------------------------------------//
-	public static void addParentAccount(int studentId, String name, int grade, char classLetter, String teacher,
-			String parentName, String parentEmail, String parentAddress, int parentContact,
-			ArrayList<ParentAccount> ParentAccountList) {
-		ParentAccount parentAccount = new ParentAccount(studentId, name, grade, classLetter, teacher, parentName,
-				parentEmail, parentAddress, parentContact);
+	public static void addParentAccount(ParentAccount parentAccount,
+		ArrayList<ParentAccount> ParentAccountList) {
 		ParentAccountList.add(parentAccount);
 		Random rand = new Random();
 		int id = rand.nextInt(90000) + 10000;
@@ -301,11 +300,8 @@ public class C206_CaseStudy {
 	}
 
 	// ------------------------------------------Add Student Account------------------------------------------//
-	public static void addStudentAccount(int studentId, String name, int grade, char classLetter, String teacher,
-			String studentEmail, String studentAddress, int studentContact,
+	public static void addStudentAccount(StudentAccount studentAccount,
 			ArrayList<StudentAccount> StudentAccountList) {
-		StudentAccount studentAccount = new StudentAccount(studentId, name, grade, classLetter, teacher, studentEmail,
-				studentAddress, studentContact);
 		StudentAccountList.add(studentAccount);
 		Random rand = new Random();
 		int id = rand.nextInt(90000) + 10000;
