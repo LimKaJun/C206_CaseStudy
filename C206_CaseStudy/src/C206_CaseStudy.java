@@ -91,6 +91,8 @@ public class C206_CaseStudy {
 										.readInt("Enter Registration ID of student account to delete > ");
 								C206_CaseStudy.deleteStudentAccount(StudentAccountList, accountDeleted);
 							}
+						} else if (staffOption == 11) {
+							
 						} else if (staffOption == 12) {
 
 						} else if (staffOption == 13) {
@@ -281,7 +283,7 @@ public class C206_CaseStudy {
 		}
 		studentAccount.setRegistrationID(id);
 	}
-
+	
 	public static void viewParentAccount(ArrayList<ParentAccount> ParentAccountList) {
 		C206_CaseStudy.setHeader("PARENT ACCOUNT LIST");
 		String output = "";
