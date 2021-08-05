@@ -257,6 +257,20 @@ public class C206_CaseStudy {
 		return true;
 	}
 
+	//-------------------------------------------Add student-------------------------------------------------//
+//	public static void addStudent(int studentId, String name, int grade, char classLetter, String teacher,
+//			ArrayList<Student> studentList) {
+//		Student studentList = new studentList(name, grade, classLetter, teacher);
+//		studentList.add(Student);
+//		int id = -1;
+//		for (int i = 0; i < StudentList.size(); i++) {
+//			if (StudentList.get(i).equals(null)) {
+//				id = i;
+//			}
+//		}
+//		System.out.println("=======successfully added=======");
+//	}
+	
 	//-------------------------------------------Add Parent Account-------------------------------------------------//
 	public static void addParentAccount(int studentId, String name, int grade, char classLetter, String teacher,
 			String parentName, String parentEmail, String parentAddress, int parentContact,
@@ -273,7 +287,7 @@ public class C206_CaseStudy {
 		parentAccount.setRegistrationID(id);
 	}
 
-	//------------------------------------------Add Student Accouunt----------------------------------------------//
+	//------------------------------------------Add Student Account----------------------------------------------//
 	public static void addStudentAccount(int studentId, String name, int grade, char classLetter, String teacher,
 			String studentEmail, String studentAddress, int studentContact,
 			ArrayList<StudentAccount> StudentAccountList) {
@@ -288,7 +302,7 @@ public class C206_CaseStudy {
 		}
 		studentAccount.setRegistrationID(id);
 	}
-	
+
 	//-----------------------------View Parent Account----------------------------------//
 	public static void viewParentAccount(ArrayList<ParentAccount> ParentAccountList) {
 		C206_CaseStudy.setHeader("PARENT ACCOUNT LIST");
