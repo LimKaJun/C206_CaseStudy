@@ -316,6 +316,7 @@ public class C206_CaseStudy {
 		}
 
 		studentAccount.setRegistrationID(i);
+	}
 	
 	// ------------------------------------------View Student List------------------------------------------//
 	public static void viewStudent(ArrayList<Student> studentList) {
