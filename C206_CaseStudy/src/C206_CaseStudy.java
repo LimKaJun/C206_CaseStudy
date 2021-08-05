@@ -292,8 +292,7 @@ public class C206_CaseStudy {
 	//-----------------------------View Parent Account----------------------------------//
 	public static void viewParentAccount(ArrayList<ParentAccount> ParentAccountList) {
 		C206_CaseStudy.setHeader("PARENT ACCOUNT LIST");
-		String output = "";
-		output += String.format("%-10s %-25s %-10s %-10s %-25s %-25s %-25s %-25s %-10s %-10s %-20s \n", "STUDENT ID",
+		String output = String.format("%-10s %-25s %-10s %-10s %-25s %-25s %-25s %-25s %-10s %-10s %-20s \n", "STUDENT ID",
 				"NAME", "GRADE", "CLASS", "TEACHER", "PARENT NAME", "PARENT EMAIL", "PARENT ADDRESS", "PARENT CONTACT",
 				"REGISTRATION ID", "CCA REGISTERED");
 		output += C206_CaseStudy.retrieveAllParentAccount(ParentAccountList);
@@ -303,8 +302,7 @@ public class C206_CaseStudy {
 	//-------------------------------View Student Account----------------------------------//
 	public static void viewStudentAccount(ArrayList<StudentAccount> StudentAccountList) {
 		C206_CaseStudy.setHeader("STUDENT ACCOUNT LIST");
-		String output = "";
-		output += String.format("%-10s %-25s %-10s %-10s %-25s %-25s %-25s %-10s %-10s %-20s \n", "STUDENT ID", "NAME",
+		String output = String.format("%-10s %-25s %-10s %-10s %-25s %-25s %-25s %-10s %-10s %-20s \n", "STUDENT ID", "NAME",
 				"GRADE", "CLASS", "TEACHER", "STUDENT EMAIL", "STUDENT ADDRESS", "STUDENT CONTACT", "REGISTRATION ID",
 				"CCA REGISTERED");
 		output += C206_CaseStudy.retrieveAllStudentAccount(StudentAccountList);
