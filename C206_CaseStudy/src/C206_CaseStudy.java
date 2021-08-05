@@ -32,14 +32,14 @@ public class C206_CaseStudy {
 		StudentList.add(new Student(1, "Aseerah", 4, 'D', "Jason"));
 		StudentList.add(new Student(2, "Faith", 2, 'A', "James"));
 
-		ParentAccount pa = new ParentAccount(0, "Aloysius", 12345, 'C', "Desmond", "Mary", "mary@gmail.com",
+		ParentAccount pa = new ParentAccount(0, "Aloysius", 3, 'C', "Desmond", "Mary", "mary@gmail.com",
 				"Pasir Ris Avenue 3 520511", 91234567);
-		pa.setRegistrationID(12345);
+		pa.setRegistrationID(5);
 		ParentAccountList.add(pa);
 
-		StudentAccount sa = new StudentAccount(1, "Aseerah", 54321, 'D', "Jason", "aseerah@gmail.com",
+		StudentAccount sa = new StudentAccount(1, "Aseerah", 4, 'D', "Jason", "aseerah@gmail.com",
 				"Pasir Ris Avenue 6 520522", 98765432);
-		sa.setRegistrationID(54321);
+		sa.setRegistrationID(10);
 		sa.setCcaRegistered("Soccer");
 		StudentAccountList.add(sa);
 
@@ -284,38 +284,26 @@ public class C206_CaseStudy {
 	public static void addParentAccount(ParentAccount parentAccount,
 		ArrayList<ParentAccount> ParentAccountList) {
 		ParentAccountList.add(parentAccount);
-		boolean exist = true;
-		int i = 0;
-		while(exist==true) {
-			exist=false;
-			for(int j=0;j < ParentAccountList.size();j++) {
-				if(ParentAccountList.get(i).getRegistrationID()==i) {
-					exist=true;
-				}
+		int highest = 0;
+		for(int i = 0;i<ParentAccountList.size();i++) {
+			if(ParentAccountList.get(i).getRegistrationID()>highest) {
+				highest = ParentAccountList.get(i).getRegistrationID();
 			}
-			i++;
 		}
-
-		parentAccount.setRegistrationID(i);
+		parentAccount.setRegistrationID(highest+1);
 	}
 
 	// ------------------------------------------Add Student Account------------------------------------------//
 	public static void addStudentAccount(StudentAccount studentAccount,
 			ArrayList<StudentAccount> StudentAccountList) {
 		StudentAccountList.add(studentAccount);
-		boolean exist = true;
-		int i = 0;
-		while(exist==true) {
-			exist=false;
-			for(int j=0;j < StudentAccountList.size();j++) {
-				if(StudentAccountList.get(i).getRegistrationID()==i) {
-					exist=true;
-				}
+		int highest = 0;
+		for(int i = 0;i<StudentAccountList.size();i++) {
+			if(StudentAccountList.get(i).getRegistrationID()>highest) {
+				highest = StudentAccountList.get(i).getRegistrationID();
 			}
-			i++;
 		}
-
-		studentAccount.setRegistrationID(i);
+		studentAccount.setRegistrationID(highest+1);
 	}
 
 	// ------------------------------------------View Student List------------------------------------------//
@@ -394,8 +382,8 @@ public class C206_CaseStudy {
 		int accountRemoved = 0;
 		for (int i = 0; i < ParentAccountList.size(); i++) {
 			if (ParentAccountList.get(i).getRegistrationID() == registrationId) {
+				accountRemoved = ParentAccountList.get(i).getRegistrationID();
 				ParentAccountList.remove(i);
-				accountRemoved = i;
 				removed = true;
 				break;
 			}
@@ -413,8 +401,8 @@ public class C206_CaseStudy {
 		int accountRemoved = 0;
 		for (int i = 0; i < StudentAccountList.size(); i++) {
 			if (StudentAccountList.get(i).getRegistrationID() == registrationId) {
+				accountRemoved = StudentAccountList.get(i).getRegistrationID();
 				StudentAccountList.remove(i);
-				accountRemoved = i;
 				removed = true;
 				break;
 			}
