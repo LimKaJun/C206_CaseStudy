@@ -72,7 +72,7 @@ public class C206_CaseStudy {
 
 								C206_CaseStudy.addStudent(studentId, name, grade, classLetter, teacher, StudentList);
 								System.out.println("successfully added !");
-							}else {
+							} else {
 								System.out.println("Student ID already exist.");
 							}
 
@@ -81,9 +81,9 @@ public class C206_CaseStudy {
 							C206_CaseStudy.viewStudent(StudentList);
 
 						} else if (staffOption == 3) {
-							
+
 							C206_CaseStudy.viewStudent(StudentList);
-							
+
 							int delete = Helper.readInt("Enter the student id that you wish to delete > ");
 							C206_CaseStudy.deleteStudent(StudentList, delete);
 
@@ -106,6 +106,26 @@ public class C206_CaseStudy {
 								int accountDeleted = Helper
 										.readInt("Enter Registration ID of parent account to delete > ");
 								C206_CaseStudy.deleteParentAccount(ParentAccountList, accountDeleted);
+							}
+							char update = Helper.readChar("Would you like to update any parent account here?(y/n) > ");
+							if (update == 'y' || update == 'Y') {
+								int accountUpdated = Helper
+										.readInt("Enter Registration ID of parent account to update > ");
+								C206_CaseStudy.updateMenu();
+								int updateIndex = Helper.readInt("Enter attribute to update > ");
+								if (updateIndex == 1 || updateIndex == 3 || updateIndex == 9 || updateIndex == 10) {
+									int value = Helper.readInt("Enter new value > ");
+									C206_CaseStudy.updateParentAccountInt(updateIndex, accountUpdated,
+											ParentAccountList, value);
+								} else if (updateIndex == 4) {
+									char value = Helper.readChar("Enter new value > ");
+									C206_CaseStudy.updateParentAccountChar(updateIndex, accountUpdated,
+											ParentAccountList, value);
+								} else {
+									String value = Helper.readString("Enter new value");
+									C206_CaseStudy.updateParentAccountString(updateIndex, accountUpdated,
+											ParentAccountList, value);
+								}
 							}
 						} else if (staffOption == 11) {
 							C206_CaseStudy.viewStudentAccount(StudentAccountList);
@@ -199,6 +219,70 @@ public class C206_CaseStudy {
 		System.out.println("4. Register as Student");
 		System.out.println("5. Quit");
 		Helper.line(80, "-");
+	}
+
+	// -----------------------Update Menu---------------------------//
+	public static void updateMenu() {
+		C206_CaseStudy.setHeader("UPDATE MENU");
+		System.out.println("1. Student ID");
+		System.out.println("2. Name");
+		System.out.println("3. Grade");
+		System.out.println("4. Class");
+		System.out.println("5. Teacher");
+		System.out.println("6. Parent's name");
+		System.out.println("7. Parent's email");
+		System.out.println("8. Parent's address");
+		System.out.println("9. Parent's contact");
+		System.out.println("10. Registration ID");
+		System.out.println("11. CCA Registered");
+		Helper.line(80, "-");
+	}
+
+	public static void updateParentAccountInt(int updateIndex, int accountUpdated,
+			ArrayList<ParentAccount> ParentAccountList, int value) {
+		for (int i = 0; i < ParentAccountList.size(); i++) {
+			if (ParentAccountList.get(i).getRegistrationID() == accountUpdated) {
+				if (updateIndex == 1) {
+					ParentAccountList.get(i).setStudentId(value);
+				} else if (updateIndex == 3) {
+					ParentAccountList.get(i).setGrade(value);
+				} else if (updateIndex == 9) {
+					ParentAccountList.get(i).setParentContact(value);
+				} else if (updateIndex == 10) {
+					ParentAccountList.get(i).setRegistrationID(value);
+				}
+			}
+		}
+	}
+	
+	public static void updateParentAccountChar(int updateIndex, int accountUpdated,
+			ArrayList<ParentAccount> ParentAccountList, char value) {
+		for (int i = 0; i < ParentAccountList.size(); i++) {
+			if (ParentAccountList.get(i).getRegistrationID() == accountUpdated) {
+				ParentAccountList.get(i).setClassLetter(value);
+			}
+		}
+	}
+	
+	public static void updateParentAccountString(int updateIndex, int accountUpdated,
+			ArrayList<ParentAccount> ParentAccountList, String value) {
+		for (int i = 0; i < ParentAccountList.size(); i++) {
+			if (ParentAccountList.get(i).getRegistrationID() == accountUpdated) {
+				if (updateIndex == 2) {
+					ParentAccountList.get(i).setName(value);
+				} else if (updateIndex == 5) {
+					ParentAccountList.get(i).setTeacher(value);
+				} else if (updateIndex == 6) {
+					ParentAccountList.get(i).setParentName(value);
+				} else if (updateIndex == 7) {
+					ParentAccountList.get(i).setParentEmail(value);
+				}else if (updateIndex == 8) {
+					ParentAccountList.get(i).setParentAddress(value);
+				}else if (updateIndex == 11) {
+					ParentAccountList.get(i).setCcaRegistered(value);
+				}
+			}
+		}
 	}
 
 	// ---------------------------------------Staff
@@ -400,26 +484,26 @@ public class C206_CaseStudy {
 		}
 		return output;
 	}
-	
-	// ------------------------------------------Delete Student List------------------------------------------//
-		public static void deleteStudent(ArrayList<Student> StudentList, int delete) {
-			boolean removed = false;
-			int deleted = 0;
-			for (int i = 0; i < StudentList.size(); i++) {
-				if (StudentList.get(i).getStudentId() == delete) {
-					deleted = StudentList.get(i).getStudentId();
-					StudentList.remove(i);
-					removed = true;
-					break;
-				}
-			}
-			if (removed) {
-				System.out.println("Student id " + deleted + " has been deleted!");
-			} else {
-				System.out.println("Student ID do not exist.");
+
+	// ------------------------------------------Delete Student
+	// List------------------------------------------//
+	public static void deleteStudent(ArrayList<Student> StudentList, int delete) {
+		boolean removed = false;
+		int deleted = 0;
+		for (int i = 0; i < StudentList.size(); i++) {
+			if (StudentList.get(i).getStudentId() == delete) {
+				deleted = StudentList.get(i).getStudentId();
+				StudentList.remove(i);
+				removed = true;
+				break;
 			}
 		}
-	
+		if (removed) {
+			System.out.println("Student id " + deleted + " has been deleted!");
+		} else {
+			System.out.println("Student ID do not exist.");
+		}
+	}
 
 	// -------------------------------------------Delete Parent
 	// Account------------------------------------------//
