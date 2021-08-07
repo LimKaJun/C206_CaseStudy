@@ -46,20 +46,33 @@ public class C206_CaseStudyTest {
 	public void addStudentTest() {
 		// Item list is not null, so that can add a new item - boundary
 		assertNotNull("Check if there is valid Student arraylist to add ", StudentList);
+		System.out.println("Add Test - student list is valid");
 
 		// add items in the studentList
 		C206_CaseStudy.addStudent(StudentList, student1);
-		
+		System.out.println("Add Test - student 1 successfully added");
+
 		// Given an empty list, after adding 1 item, the size of the list is 1 - normal
 		assertEquals("Check that Student arraylist size is 1", 1, StudentList.size());
+		System.out.println("Add Test - student list size is 1");
+
+		
 		// The item just added is as same as the first item of the list
 		assertSame("Check that Student is added", student1, StudentList.get(0));
+		System.out.println("Add Test - student 1 is the first item");
+
 
 		// Add another item. test The size of the list is 2 - normal
 		C206_CaseStudy.addStudent(StudentList, student2);
+		System.out.println("Add Test - student 2 is successfully added");
+
 		assertEquals("Check that Student arraylist size is 2", 2, StudentList.size());
+		System.out.println("Add Test - student list size is 2");
+
 		// The item just added is as same as the second item of the list
 		assertSame("Check that Student is added", student2, StudentList.get(1));
+		System.out.println("Add Test - student 2 is the second item");
+
 	}
 
 	@Test
@@ -93,6 +106,9 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addStudent(StudentList, student1);
 		C206_CaseStudy.addStudent(StudentList, student2);
 		assertEquals("Test that Student arraylist size is 2", 2, StudentList.size());
+		System.out.println("View Test - student list size is 2");
+
+		
 
 		// test if the expected output string same as the list of students retrieved
 		// from the C206_CaseStudy
@@ -100,6 +116,7 @@ public class C206_CaseStudyTest {
 		testOutput = String.format("%-15d %-15s %-10s %-10s %-15s \n", 0, "Aloysius", 3, 'C', "Desmond");
 		testOutput += String.format("%-15d %-15s %-10s %-10s %-15s \n", 1, "Aseerah", 4, 'D', "Jason");
 		assertEquals("Test that viewStudentList shows the same output", testOutput, viewStudent);
+		System.out.println("View Test - Student list has the same output as the assigned");
 
 	}
 
@@ -126,6 +143,7 @@ public class C206_CaseStudyTest {
 
 	@Test
 	public void deleteStudentTest() {
+		System.out.println("Delete - Test: ");
 		// Test if Item list is not null but empty -boundary
 		assertNotNull("Test if there is valid Student arraylist to retrieve item", StudentList);
 

@@ -377,8 +377,6 @@ public class C206_CaseStudy {
 	public static void addStudent(ArrayList<Student> StudentList, Student student) {
 
 		StudentList.add(student);	
-		System.out.println("student successfully added into the system");
-
 	}
 
 	// ------------------------------------------Add Parent
@@ -490,6 +488,7 @@ public class C206_CaseStudy {
 	public static void deleteStudent(ArrayList<Student> StudentList, int delete) {
 		boolean removed = false;
 		int deleted = 0;
+		String output = " ";
 		for (int i = 0; i < StudentList.size(); i++) {
 			if (StudentList.get(i).getStudentId() == delete) {
 				deleted = StudentList.get(i).getStudentId();
@@ -499,9 +498,11 @@ public class C206_CaseStudy {
 			}
 		}
 		if (removed) {
-			System.out.println("Student id " + deleted + " has been deleted!");
+			output = ("Student id " + deleted + " has been deleted!");
+			System.out.println(output);
+			
 		} else {
-			System.out.println("Student ID do not exist.");
+			output = ("Student ID do not exist.");
 		}
 	}
 
