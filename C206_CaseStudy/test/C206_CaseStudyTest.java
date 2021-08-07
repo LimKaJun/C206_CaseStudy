@@ -143,7 +143,6 @@ public class C206_CaseStudyTest {
 
 	@Test
 	public void deleteStudentTest() {
-		System.out.println("Delete - Test: ");
 		// Test if Item list is not null but empty -boundary
 		assertNotNull("Test if there is valid Student arraylist to retrieve item", StudentList);
 

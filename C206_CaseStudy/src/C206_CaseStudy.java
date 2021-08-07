@@ -498,7 +498,7 @@ public class C206_CaseStudy {
 			}
 		}
 		if (removed) {
-			output = ("Student id " + deleted + " has been deleted!");
+			output = ("Student id " + deleted + " has been deleted from the system.");
 			System.out.println(output);
 			
 		} else {
