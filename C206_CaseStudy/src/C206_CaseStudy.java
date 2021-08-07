@@ -70,9 +70,11 @@ public class C206_CaseStudy {
 								char classLetter = Helper.readChar("Enter class > ");
 								String teacher = Helper.readString("Enter teacher's name > ");
 
-								C206_CaseStudy.addStudent(studentId, name, grade, classLetter, teacher, StudentList);
+								Student student = new Student(studentId, name, grade, classLetter, teacher);
+								C206_CaseStudy.addStudent(StudentList, student);
+
 								System.out.println("successfully added !");
-							}else {
+							} else {
 								System.out.println("Student ID already exist.");
 							}
 
@@ -81,9 +83,9 @@ public class C206_CaseStudy {
 							C206_CaseStudy.viewStudent(StudentList);
 
 						} else if (staffOption == 3) {
-							
+
 							C206_CaseStudy.viewStudent(StudentList);
-							
+
 							int delete = Helper.readInt("Enter the student id that you wish to delete > ");
 							C206_CaseStudy.deleteStudent(StudentList, delete);
 
@@ -287,16 +289,12 @@ public class C206_CaseStudy {
 
 	// ------------------------------------------Add
 	// student------------------------------------------//
-	public static void addStudent(int studentId, String name, int grade, char classLetter, String teacher,
-			ArrayList<Student> studentList) {
-		Student student = new Student(studentId, name, grade, classLetter, teacher);
-		studentList.add(student);
-		int id = -1;
-		for (int i = 0; i < studentList.size(); i++) {
-			if (studentList.get(i).equals(null)) {
-				id = i;
-			}
-		}
+
+	public static void addStudent(ArrayList<Student> StudentList, Student student) {
+
+		StudentList.add(student);	
+		System.out.println("student successfully added into the system");
+
 	}
 
 	// ------------------------------------------Add Parent
@@ -333,7 +331,9 @@ public class C206_CaseStudy {
 				"TEACHER");
 		output += C206_CaseStudy.retrieveAllStudent(studentList);
 		System.out.println(output);
-	}
+		
+		
+	}	
 
 	// ------------------------------------------View Parent
 	// Account------------------------------------------//
@@ -400,26 +400,26 @@ public class C206_CaseStudy {
 		}
 		return output;
 	}
-	
-	// ------------------------------------------Delete Student List------------------------------------------//
-		public static void deleteStudent(ArrayList<Student> StudentList, int delete) {
-			boolean removed = false;
-			int deleted = 0;
-			for (int i = 0; i < StudentList.size(); i++) {
-				if (StudentList.get(i).getStudentId() == delete) {
-					deleted = StudentList.get(i).getStudentId();
-					StudentList.remove(i);
-					removed = true;
-					break;
-				}
-			}
-			if (removed) {
-				System.out.println("Student id " + deleted + " has been deleted!");
-			} else {
-				System.out.println("Student ID do not exist.");
+
+	// ------------------------------------------Delete Student
+	// List------------------------------------------//
+	public static void deleteStudent(ArrayList<Student> StudentList, int delete) {
+		boolean removed = false;
+		int deleted = 0;
+		for (int i = 0; i < StudentList.size(); i++) {
+			if (StudentList.get(i).getStudentId() == delete) {
+				deleted = StudentList.get(i).getStudentId();
+				StudentList.remove(i);
+				removed = true;
+				break;
 			}
 		}
-	
+		if (removed) {
+			System.out.println("Student id " + deleted + " has been deleted!");
+		} else {
+			System.out.println("Student ID do not exist.");
+		}
+	}
 
 	// -------------------------------------------Delete Parent
 	// Account------------------------------------------//
