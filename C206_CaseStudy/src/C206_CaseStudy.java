@@ -426,9 +426,17 @@ public class C206_CaseStudy {
 				"TEACHER");
 		output += C206_CaseStudy.retrieveAllStudent(studentList);
 		System.out.println(output);
-		
-		
 	}	
+	
+	//--------------------------------View CCA Details-----------------------------------//
+		public static void viewCCADetails(ArrayList<CCA> CCAList) {
+			C206_CaseStudy.setHeader("VIEW CCA DETAILS");
+			
+			String output = String.format("%-20s %-20s %-20s %-20s %-20s %-20s &-20s\n", "TITLE", "DESCRIPTION", "CLASS SIZE", 
+					"DAY OF WEEK", "TIME", "VENUE", "INSTRUCTOR IN-CHARGE", "CATEGORY");
+			output += C206_CaseStudy.retrieveAllCCADetails(CCAList);
+			System.out.println(output);
+		}
 
 	// ------------------------------------------View Parent Account------------------------------------------//
 	public static void viewParentAccount(ArrayList<ParentAccount> ParentAccountList) {
@@ -460,6 +468,17 @@ public class C206_CaseStudy {
 		}
 		return output;
 	}
+	
+	//--------------------------------Retrieve All CCA Details------------------------------------//
+		public static String retrieveAllCCADetails(ArrayList<CCA> CCAList) {
+			String output = "";
+			for (int i = 0; i < CCAList.size(); i++) {
+				CCA cca = CCAList.get(i);
+				output += String.format("%-20s %-20s %-20d %-20s %-20s %-20s &-20s\n", cca.getTitle(), cca.getDescription(),
+						cca.getClassSize(), cca.getDayOfWeek(), cca.getTime(), cca.getVenue(), cca.getInstructorName(), cca.getCategory());	
+			}
+			return output;
+		}
 
 	// ------------------------------------------Retrieve All Parent Account------------------------------------------//
 	public static String retrieveAllParentAccount(ArrayList<ParentAccount> ParentAccountList) {
