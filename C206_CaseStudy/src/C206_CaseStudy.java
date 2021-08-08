@@ -529,6 +529,8 @@ public class C206_CaseStudy {
 			
 		} else {
 			output = ("Student ID do not exist.");
+			System.out.println(output);
+
 		}
 	}
 
