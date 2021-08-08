@@ -96,6 +96,7 @@ public class C206_CaseStudy {
 							C206_CaseStudy.viewCCADetails(CCAList);
 
 						} else if (staffOption == 6) {
+							C206_CaseStudy.deleteCCADetails(CCAList);
 
 						} else if (staffOption == 7) {
 
@@ -550,6 +551,30 @@ public class C206_CaseStudy {
 			System.out.println("Account with registration ID " + accountRemoved + " removed!");
 		} else {
 			System.out.println("Registration ID do not exist.");
+		}
+	}
+	
+	//-----------------------------------------Delete CCA--------------------------------------------//
+	public static void deleteCCADetails(ArrayList<CCA> CCAList) {
+		viewCCADetails(CCAList);
+		boolean isDeleted = false;
+		String title = Helper.readString("Enter CCA title to delete > ");
+		
+		for (int i = 0; i < CCAList.size(); i++) {
+			CCA cca = CCAList.get(i);
+			
+			if (cca.getTitle().equalsIgnoreCase(title)) {
+				CCAList.remove(i);
+				isDeleted = true;
+				break;
+			}
+		}
+		
+		if (isDeleted) {
+			System.out.println(title + " CCA has been deleted!");
+		}
+		else {
+			System.out.println("CCA title does not exist!");
 		}
 	}
 
