@@ -90,9 +90,10 @@ public class C206_CaseStudy {
 							C206_CaseStudy.deleteStudent(StudentList, delete);
 
 						} else if (staffOption == 4) {
-							
+							C206_CaseStudy.addCCADetails(CCAList, C206_CaseStudy.inputDetails());
 
 						} else if (staffOption == 5) {
+							C206_CaseStudy.viewCCADetails(CCAList);
 
 						} else if (staffOption == 6) {
 
@@ -432,7 +433,7 @@ public class C206_CaseStudy {
 		public static void viewCCADetails(ArrayList<CCA> CCAList) {
 			C206_CaseStudy.setHeader("VIEW CCA DETAILS");
 			
-			String output = String.format("%-20s %-20s %-20s %-20s %-20s %-20s &-20s\n", "TITLE", "DESCRIPTION", "CLASS SIZE", 
+			String output = String.format("%-15s %-30s %-15s %-20s %-20s %-20s %-25s\n", "TITLE", "DESCRIPTION", "CLASS SIZE", 
 					"DAY OF WEEK", "TIME", "VENUE", "INSTRUCTOR IN-CHARGE", "CATEGORY");
 			output += C206_CaseStudy.retrieveAllCCADetails(CCAList);
 			System.out.println(output);
@@ -474,7 +475,7 @@ public class C206_CaseStudy {
 			String output = "";
 			for (int i = 0; i < CCAList.size(); i++) {
 				CCA cca = CCAList.get(i);
-				output += String.format("%-20s %-20s %-20d %-20s %-20s %-20s &-20s\n", cca.getTitle(), cca.getDescription(),
+				output += String.format("%-15s %-30s %-15s %-20s %-20s %-20s %-25s\n", cca.getTitle(), cca.getDescription(),
 						cca.getClassSize(), cca.getDayOfWeek(), cca.getTime(), cca.getVenue(), cca.getInstructorName(), cca.getCategory());	
 			}
 			return output;
