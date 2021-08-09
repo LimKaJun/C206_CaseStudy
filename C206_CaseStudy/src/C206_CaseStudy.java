@@ -620,7 +620,6 @@ public class C206_CaseStudy {
 			System.out.println("Registration ID do not exist.");
 		}
 	}
-<<<<<<< HEAD
 	//-------------------------------------------Add student for CCA------------------------------------------//
 		public static void addStudentCCA(Student student,ArrayList<Student> StudentCCA) {
 			StudentCCA.add(student);
@@ -656,9 +655,6 @@ public class C206_CaseStudy {
 			return output;
 		}
 		
-=======
-
->>>>>>> branch 'master' of https://github.com/LimKaJun/C206_CaseStudy
 	public static void setHeader(String header) {
 		Helper.line(80, "-");
 		System.out.println(header);

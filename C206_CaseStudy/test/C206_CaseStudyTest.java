@@ -284,7 +284,6 @@ private String cat2;
 		assertEquals(0, ParentAccountList.size());
 
 	}
-<<<<<<< HEAD
 	@Test 
 	public void testAddStudentCCA() {
 		// Item list is not null, so that can add a new item - boundary
@@ -332,7 +331,6 @@ private String cat2;
 
 	}
 		
-=======
 	
 	@Test
 	public void testAddCategory() {
@@ -375,6 +373,5 @@ private String cat2;
 		assertSame(output, test);
 
 	}
->>>>>>> branch 'master' of https://github.com/LimKaJun/C206_CaseStudy
 
 }
