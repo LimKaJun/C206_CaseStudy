@@ -254,7 +254,6 @@ public class C206_CaseStudy {
 			}
 		}
 	}
-	
 	public static void updateParentAccountChar(int updateIndex, int accountUpdated,
 			ArrayList<ParentAccount> ParentAccountList, char value) {
 		for (int i = 0; i < ParentAccountList.size(); i++) {
@@ -263,7 +262,6 @@ public class C206_CaseStudy {
 			}
 		}
 	}
-	
 	public static void updateParentAccountString(int updateIndex, int accountUpdated,
 			ArrayList<ParentAccount> ParentAccountList, String value) {
 		for (int i = 0; i < ParentAccountList.size(); i++) {
