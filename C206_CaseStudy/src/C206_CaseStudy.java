@@ -162,7 +162,7 @@ public class C206_CaseStudy {
 						if (accountOption == 1) {
 							String registerCCA = Helper.readString("Enter CCA name to register > ");
 						} else if (accountOption == 2) {
-							
+							C206_CaseStudy.viewAllStudentregisteredForCCA(StudentList);
 						}
 					}
 				} else {
