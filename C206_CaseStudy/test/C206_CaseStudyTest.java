@@ -14,6 +14,11 @@ public class C206_CaseStudyTest {
 	private Student student1;
 	private Student student2;
 	private ArrayList<Student> StudentList;
+	
+	private CCA basketball;
+	private CCA bakery;
+	private CCA soccer;
+	private ArrayList<CCA> CCAList;
 
 	@Before
 	public void setUp() throws Exception {
@@ -24,9 +29,17 @@ public class C206_CaseStudyTest {
 
 		student1 = new Student(0, "Aloysius", 3, 'C', "Desmond");
 		student2 = new Student(1, "Aseerah", 4, 'D', "Jason");
+		
+		basketball = new CCA("Basketball", "Playing balls with hand", 12, "Monday", "3:00PM - 4:00PM",
+				"Basketball Court", "Naziran", "Sports");
+		bakery = new CCA("Bakery", "Baking cookies and cakes!", 5, "Wednesday", "1:00PM - 2:00PM", "Kitchen Lab",
+				"Kajun", "Cooking");
+		soccer = new CCA("Soccer", "Playing balls with leg", 20, "Tuesday", "4:00PM - 6:00PM", "Soccer Field",
+				"Naziran", "Sports");
 
 		ParentAccountList = new ArrayList<ParentAccount>();
 		StudentList = new ArrayList<Student>();
+		CCAList = new ArrayList<CCA>();
 
 	}
 
@@ -39,6 +52,11 @@ public class C206_CaseStudyTest {
 		student1 = null;
 		student2 = null;
 		StudentList = null;
+		
+		basketball = null;
+		bakery = null;
+		soccer = null;
+		CCAList = null;
 
 	}
 
@@ -73,6 +91,30 @@ public class C206_CaseStudyTest {
 		assertSame("Check that Student is added", student2, StudentList.get(1));
 		System.out.println("Add Test - student 2 is the second item");
 
+	}
+	
+	@Test
+	public void testAddCCADetails() {
+		// CCAList is not null, so that can add new CCA - boundary
+		assertNotNull("Check if there is valid CCA arraylist to add to", CCAList);
+		
+		// Given an empty list, after adding 1 item, the size of the list is 1 - normal
+		// The item just added is same as the first item of the list
+		C206_CaseStudy.addCCADetails(CCAList, basketball);
+		assertEquals("Check that CCA arraylist size is 1", 1, CCAList.size());
+		assertSame("Test that basketball is added", basketball, CCAList.get(0));
+		
+		// Add another item. Test that the size of the list is 2 - normal
+		// Item just added is same as the second item of the list
+		C206_CaseStudy.addCCADetails(CCAList, bakery);
+		assertEquals("Check that CCA arraylist size is 2", 2, CCAList.size());
+		assertSame("Test that bakery is added", bakery, CCAList.get(1));
+		
+		// Add 3rd item. Test that the size of the list is 3 - normal
+		// Item just added is same as the third item of the list
+		C206_CaseStudy.addCCADetails(CCAList, soccer);
+		assertEquals("Check that CCA arraylist size is 3", 3, CCAList.size());
+		assertSame("Test that soccer is added", soccer, CCAList.get(2));
 	}
 
 	@Test
@@ -119,6 +161,34 @@ public class C206_CaseStudyTest {
 		System.out.println("View Test - Student list has the same output as the assigned");
 
 	}
+	
+	@Test
+	public void retrieveAllCCADetails() {
+		// Test if CCA list is not null but empty - boundary
+		assertNotNull("Test if there is valid CCA arraylist to retrieve details", CCAList);
+		
+		// Test if the list of CCA details retrieved from the C206_CaseStudy is empty - boundary
+		String allCCADetails = C206_CaseStudy.retrieveAllCCADetails(CCAList);
+		String testOutput = "";
+		assertEquals("Check that ViewAllCCAlist", testOutput, allCCADetails);
+		
+		// Given an empty list, after adding 3 items, test if the size of the list is 3 - normal
+		C206_CaseStudy.addCCADetails(CCAList, basketball);
+		C206_CaseStudy.addCCADetails(CCAList, bakery);
+		C206_CaseStudy.addCCADetails(CCAList, soccer);
+		assertEquals("Test that CCA arraylist size is 3", 3, CCAList.size());
+		
+		// Test if the expected output string same as the list of CCA details retrieved from the C206_CaseStudy
+		allCCADetails = C206_CaseStudy.retrieveAllCCADetails(CCAList);
+		testOutput = String.format("%-15s %-30s %-15s %-20s %-20s %-20s %-25s\n", "Basketball", "Playing balls with hand", 12, "Monday", "3:00PM - 4:00PM",
+				"Basketball Court", "Naziran", "Sports");
+		testOutput += String.format("%-15s %-30s %-15s %-20s %-20s %-20s %-25s\n", "Bakery", "Baking cookies and cakes!", 5, "Wednesday", "1:00PM - 2:00PM", "Kitchen Lab",
+				"Kajun", "Cooking");
+		testOutput += String.format("%-15s %-30s %-15s %-20s %-20s %-20s %-25s\n", "Soccer", "Playing balls with leg", 20, "Tuesday", "4:00PM - 6:00PM", "Soccer Field",
+				"Naziran", "Sports");
+		
+		assertEquals("Test that viewALLCCAList", testOutput, allCCADetails);
+	}
 
 	@Test
 	public void testViewParentAccount() {
@@ -164,6 +234,33 @@ public class C206_CaseStudyTest {
 		// Test if the size of the list is 1 - normal
 		assertEquals("Test that Student arraylist size is 0", 0, StudentList.size());
 
+	}
+	
+	@Test
+	public void deleteCCADetailsTest() {
+		// Test if CCA list is not null but empty - boundary
+		assertNotNull("Test if there is valid CCA arraylist to retrieve details", CCAList);
+		
+		// Given an empty list, after adding 3 items, test if the size of the list is 3 - normal
+		C206_CaseStudy.addCCADetails(CCAList, basketball);
+		C206_CaseStudy.addCCADetails(CCAList, bakery);
+		C206_CaseStudy.addCCADetails(CCAList, soccer);
+		assertEquals("Test that CCA arraylist size is 3", 3, CCAList.size());
+		
+		// Delete CCA index 0 - normal
+		// Test that the size of the list is 2 - normal
+		CCAList.remove(0);
+		assertEquals("Test that CCA arrayList size is 2", 2, CCAList.size());
+		
+		// Delete CCA index 1 - normal
+		// Test that the size of the list is 1 - normal
+		CCAList.remove(1);
+		assertEquals("Test that CCA arrayList size is 1", 1, CCAList.size());
+		
+		// Delete CCA index 2 - normal
+		// Test that the size of the list is 0 - normal
+		CCAList.remove(1);
+		assertEquals("Test that CCA arrayList size is 0", 0, CCAList.size());		
 	}
 
 	@Test
