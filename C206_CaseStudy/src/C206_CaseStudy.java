@@ -99,11 +99,14 @@ public class C206_CaseStudy {
 							C206_CaseStudy.deleteCCADetails(CCAList);
 
 						} else if (staffOption == 7) {
-
+							String category = Helper.readString("Please enter the CCA Category to add > ");
+							C206_CaseStudy.addCCACategory(CategoryList, category);
 						} else if (staffOption == 8) {
-
+							C206_CaseStudy.viewCCACategories(CategoryList);
 						} else if (staffOption == 9) {
-
+							C206_CaseStudy.retrieveAllCCACategory(CategoryList);
+							String category = Helper.readString("Enter the category you want to delete > ");
+							C206_CaseStudy.deleteCCACategory(CategoryList, category);
 						} else if (staffOption == 10) {
 							C206_CaseStudy.viewParentAccount(ParentAccountList);
 							char delete = Helper.readChar("Would you like to delete any parent account here?(y/n) > ");
@@ -396,7 +399,13 @@ public class C206_CaseStudy {
 			CCAList.add(cca);
 			System.out.println("==========CCA details added!==========");
 		}
+// ---------------------------------------Add CCA
+	// Category----------------------------------------------//
 
+	public static void addCCACategory(ArrayList<String> categoryList, String category) {
+		categoryList.add(category);
+		System.out.println("==========CCA Category added!==========");
+	}
 	// ------------------------------------------Add Parent Account------------------------------------------//
 	public static void addParentAccount(ParentAccount parentAccount, ArrayList<ParentAccount> ParentAccountList) {
 		ParentAccountList.add(parentAccount);
@@ -439,7 +448,14 @@ public class C206_CaseStudy {
 			output += C206_CaseStudy.retrieveAllCCADetails(CCAList);
 			System.out.println(output);
 		}
-
+// --------------------------------View CCA Category
+	// -----------------------------------//
+	public static void viewCCACategories(ArrayList<String> categoryList) {
+		C206_CaseStudy.setHeader("VIEW CCA CATEGORY");
+		String output = String.format("%s\n", "CATEGORY");
+		output += C206_CaseStudy.retrieveAllCCACategory(categoryList);
+		System.out.println(output);
+	}
 	// ------------------------------------------View Parent Account------------------------------------------//
 	public static void viewParentAccount(ArrayList<ParentAccount> ParentAccountList) {
 		C206_CaseStudy.setHeader("PARENT ACCOUNT LIST");
@@ -481,7 +497,15 @@ public class C206_CaseStudy {
 			}
 			return output;
 		}
-
+// --------------------------------Retrieve All CCA
+	// Details------------------------------------//
+	public static String retrieveAllCCACategory(ArrayList<String> categoryList) {
+		String output = "";
+		for (int i = 0; i < categoryList.size(); i++) {
+			output += String.format("%s\n", categoryList.get(i));
+		}
+		return output;
+	}
 	// ------------------------------------------Retrieve All Parent Account------------------------------------------//
 	public static String retrieveAllParentAccount(ArrayList<ParentAccount> ParentAccountList) {
 		String output = "";
@@ -510,7 +534,7 @@ public class C206_CaseStudy {
 		}
 		return output;
 	}
-
+//
 	// ------------------------------------------Delete Student List------------------------------------------//
 	public static void deleteStudent(ArrayList<Student> StudentList, int delete) {
 		boolean removed = false;
@@ -530,6 +554,8 @@ public class C206_CaseStudy {
 			
 		} else {
 			output = ("Student ID do not exist.");
+			System.out.println(output);
+
 		}
 	}
 
@@ -594,6 +620,7 @@ public class C206_CaseStudy {
 			System.out.println("Registration ID do not exist.");
 		}
 	}
+<<<<<<< HEAD
 	//-------------------------------------------Add student for CCA------------------------------------------//
 		public static void addStudentCCA(Student student,ArrayList<Student> StudentCCA) {
 			StudentCCA.add(student);
@@ -629,10 +656,24 @@ public class C206_CaseStudy {
 			return output;
 		}
 		
+=======
+
+>>>>>>> branch 'master' of https://github.com/LimKaJun/C206_CaseStudy
 	public static void setHeader(String header) {
 		Helper.line(80, "-");
 		System.out.println(header);
 		Helper.line(80, "-");
 	}
-
+	// ------------------------------------------Delete CCA
+	// Category------------------------------------------//
+	public static void deleteCCACategory(ArrayList<String> categoryList, String category) {
+		for (int i = 0; i < categoryList.size(); i++) {
+			if (categoryList.get(i) == category) {
+				categoryList.remove(i);
+				System.out.println("CCA Category successfully deleted!");
+			} else {
+				System.out.println("CCA Category does not exist!");
+			}
+		}
+	}
 }

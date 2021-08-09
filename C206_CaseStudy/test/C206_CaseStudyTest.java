@@ -19,7 +19,9 @@ public class C206_CaseStudyTest {
 	private CCA bakery;
 	private CCA soccer;
 	private ArrayList<CCA> CCAList;
-
+	private ArrayList<String> categoryList; 
+private String cat1;
+private String cat2;
 	@Before
 	public void setUp() throws Exception {
 		parentAccount1 = new ParentAccount(0, "Aloysius", 12345, 'C', "Desmond", "Mary", "mary@gmail.com",
@@ -27,6 +29,8 @@ public class C206_CaseStudyTest {
 		parentAccount2 = new ParentAccount(1, "Aseerah", 54321, 'D', "Desmond", "Jason", "aseerah@gmail.com",
 				"Pasir Ris Avenue 6 520522", 98765432);
 
+		cat1 = "Sports";
+		cat2 = "Dance";
 		student1 = new Student(0, "Aloysius", 3, 'C', "Desmond");
 		student2 = new Student(1, "Aseerah", 4, 'D', "Jason");
 		
@@ -36,7 +40,8 @@ public class C206_CaseStudyTest {
 				"Kajun", "Cooking");
 		soccer = new CCA("Soccer", "Playing balls with leg", 20, "Tuesday", "4:00PM - 6:00PM", "Soccer Field",
 				"Naziran", "Sports");
-
+		
+		categoryList = new ArrayList<String>();
 		ParentAccountList = new ArrayList<ParentAccount>();
 		StudentList = new ArrayList<Student>();
 		CCAList = new ArrayList<CCA>();
@@ -279,6 +284,7 @@ public class C206_CaseStudyTest {
 		assertEquals(0, ParentAccountList.size());
 
 	}
+<<<<<<< HEAD
 	@Test 
 	public void testAddStudentCCA() {
 		// Item list is not null, so that can add a new item - boundary
@@ -326,5 +332,49 @@ public class C206_CaseStudyTest {
 
 	}
 		
+=======
+	
+	@Test
+	public void testAddCategory() {
+		assertNotNull(categoryList);
+		C206_CaseStudy.addCCACategory(categoryList, cat1);
+		assertEquals(categoryList.size(),1);
+		assertSame(categoryList.get(0), cat1);
+		C206_CaseStudy.addCCACategory(categoryList, cat2);
+		assertEquals(categoryList.size(),2);
+		assertSame(categoryList.get(1), cat2);
+	}
+	
+	@Test
+	public void testDeleteCategory() {
+		assertNotNull(categoryList);
+		C206_CaseStudy.addCCACategory(categoryList, cat1);
+		assertEquals(categoryList.size(),1);
+		assertSame(categoryList.get(0), cat1);
+		C206_CaseStudy.addCCACategory(categoryList, cat2);
+		assertEquals(categoryList.size(),2);
+		assertSame(categoryList.get(1), cat2);
+		C206_CaseStudy.deleteCCACategory(categoryList, cat2);
+		assertEquals(categoryList.size(), 1);
+		assertSame(categoryList.get(0), cat1);
+	}
+	
+	@Test
+	public void testViewCategory() {
+		assertNotNull(categoryList);
+		C206_CaseStudy.addCCACategory(categoryList, cat1);
+		assertEquals(categoryList.size(),1);
+		assertSame(categoryList.get(0), cat1);
+		C206_CaseStudy.addCCACategory(categoryList, cat2);
+		assertEquals(categoryList.size(),2);
+		assertSame(categoryList.get(1), cat2);
+		String output = "";
+		String test = C206_CaseStudy.retrieveAllCCACategory(categoryList);
+		output += String.format("%s\n", "Sports");
+		output += String.format("%s\n", "Dance");
+		assertSame(output, test);
+
+	}
+>>>>>>> branch 'master' of https://github.com/LimKaJun/C206_CaseStudy
 
 }
