@@ -154,6 +154,7 @@ public class C206_CaseStudy {
 				}
 			} else if (option == 2) {
 				int registrationID = Helper.readInt("Enter Registration ID > ");
+				int studentID = Helper.readInt("Student ID > ");
 				boolean correct = C206_CaseStudy.accountLogin(registrationID, ParentAccountList, StudentAccountList);
 				if (correct) {
 					int accountOption = -1;
@@ -161,9 +162,9 @@ public class C206_CaseStudy {
 						C206_CaseStudy.accountMenu();
 						accountOption = Helper.readInt("Enter an option > ");
 						if (accountOption == 1) {
-
+							String registerCCA = Helper.readString("Enter CCA name to register > ");
 						} else if (accountOption == 2) {
-
+							
 						}
 					}
 				} else {
