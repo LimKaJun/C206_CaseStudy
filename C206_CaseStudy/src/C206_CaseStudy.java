@@ -594,7 +594,41 @@ public class C206_CaseStudy {
 			System.out.println("Registration ID do not exist.");
 		}
 	}
-
+	//-------------------------------------------Add student for CCA------------------------------------------//
+		public static void addStudentCCA(Student student,
+				ArrayList<Student> StudentCCA) {
+			StudentCCA.add(student);
+			int highest = 0;
+			for(int i = 0;i<StudentCCA.size();i++) {
+				if(StudentCCA.get(i).getStudentId()>highest) {
+					highest = StudentCCA.get(i).getStudentId();
+				}
+			}
+			student.setStudentId(highest+1);
+		}
+		//--------------------------------Login to system with student id with registration ID--------------------//
+		public static boolean accountLogin2(int registrationID, ArrayList<ParentAccount> pa, ArrayList<StudentAccount> sa, int studentID) {
+			for (int i = 0; i < pa.size(); i++) {
+				if (registrationID == pa.get(i).getRegistrationID() && studentID == pa.get(i).getStudentId()) {
+					return true;
+				}
+			}
+			for (int i = 0; i < sa.size(); i++) {
+				if (registrationID == sa.get(i).getRegistrationID() && studentID == sa.get(i).getStudentId() ) {
+					return true;
+				}
+			}
+			return false;
+		}
+		//-----------------------------------------View students registered for a CCA-----------------------------//
+		public static String viewAllStudentregisteredForCCA(ArrayList<Student> CCAList) {
+			String output = "";
+			for (int i = 0; i < CCAList.size(); i++) {
+				output += String.format("%-15s %-15s \n",
+						CCAList.get(i).getStudentId(), CCAList.get(i).getName());
+			}
+			return output;
+		}
 	public static void setHeader(String header) {
 		Helper.line(80, "-");
 		System.out.println(header);
