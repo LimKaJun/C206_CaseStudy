@@ -254,12 +254,12 @@ public class C206_CaseStudyTest {
 		
 		// Delete CCA index 1 - normal
 		// Test that the size of the list is 1 - normal
-		CCAList.remove(1);
+		CCAList.remove(0);
 		assertEquals("Test that CCA arrayList size is 1", 1, CCAList.size());
 		
 		// Delete CCA index 2 - normal
 		// Test that the size of the list is 0 - normal
-		CCAList.remove(2);
+		CCAList.remove(0);
 		assertEquals("Test that CCA arrayList size is 0", 0, CCAList.size());		
 	}
 
