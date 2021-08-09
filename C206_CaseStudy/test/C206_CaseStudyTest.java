@@ -247,17 +247,17 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addCCADetails(CCAList, soccer);
 		assertEquals("Test that CCA arraylist size is 3", 3, CCAList.size());
 		
-		// Delete CCA index 0 - normal
+		// Delete basketball CCA - normal
 		// Test that the size of the list is 2 - normal
 		CCAList.remove(0);
 		assertEquals("Test that CCA arrayList size is 2", 2, CCAList.size());
 		
-		// Delete CCA index 1 - normal
+		// Delete bakery CCA - normal
 		// Test that the size of the list is 1 - normal
 		CCAList.remove(0);
 		assertEquals("Test that CCA arrayList size is 1", 1, CCAList.size());
 		
-		// Delete CCA index 2 - normal
+		// Delete soccer CCA - normal
 		// Test that the size of the list is 0 - normal
 		CCAList.remove(0);
 		assertEquals("Test that CCA arrayList size is 0", 0, CCAList.size());		
