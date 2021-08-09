@@ -279,5 +279,52 @@ public class C206_CaseStudyTest {
 		assertEquals(0, ParentAccountList.size());
 
 	}
+	@Test 
+	public void testAddStudentCCA() {
+		// Item list is not null, so that can add a new item - boundary
+		assertNotNull("Test if there is an list of students registered for CCA and waiting to be inserted into the list.", StudentList);
+		System.out.println("Add test - Student List is valid.");
+		
+		
+		//Given an empty list, after adding 1 item, the size of list is 1 - normal
+		C206_CaseStudy.addStudent(StudentList, student1);
+		System.out.println("Add test - student list size is 1");
+		
+		assertEquals("Check that student list size is 1", 1, StudentList.size());
+		System.out.println("Add test - student list size is 1");
+		
+		assertSame("Check that student is added", student1, StudentList.get(0));
+		System.out.println("Add test - student 1 is the first item");
+	}
+	
+	@Test 
+	
+	public void testLoginSystemWithTwoID() {
+		assertNotNull("Test that with registration id and student id the user can login.", ParentAccountList);
+		
+		C206_CaseStudy.addParentAccount(parentAccount1, ParentAccountList);
+		assertEquals(1, ParentAccountList.size());
+		assertSame(parentAccount1, ParentAccountList.get(0));
+	}
+	
+	@Test
+	public void testViewStudentRegisteredForCCA() {
+		assertNotNull(StudentList);
+		
+		String test = "";
+		String allStudentList = C206_CaseStudy.viewAllStudentregisteredForCCA(StudentList);
+		assertEquals(test, allStudentList);
+
+		C206_CaseStudy.addStudent(StudentList, student1);
+		C206_CaseStudy.addStudent(StudentList, student2);
+		assertNotEquals(1, ParentAccountList.size());
+
+		allStudentList = C206_CaseStudy.viewAllStudentregisteredForCCA(StudentList);
+		test = String.format("%-15d %-15s \n", 0, "Aloysius");
+		test += String.format("%-15d %-15s \n", 1, "Aseerah");
+		assertEquals(test, allStudentList);
+
+	}
+		
 
 }

@@ -141,7 +141,7 @@ public class C206_CaseStudy {
 								C206_CaseStudy.deleteStudentAccount(StudentAccountList, accountDeleted);
 							}
 						} else if (staffOption == 12) {
-
+							C206_CaseStudy.viewAllStudentregisteredForCCA(StudentList);
 						} else if (staffOption == 13) {
 
 						}
@@ -595,8 +595,7 @@ public class C206_CaseStudy {
 		}
 	}
 	//-------------------------------------------Add student for CCA------------------------------------------//
-		public static void addStudentCCA(Student student,
-				ArrayList<Student> StudentCCA) {
+		public static void addStudentCCA(Student student,ArrayList<Student> StudentCCA) {
 			StudentCCA.add(student);
 			int highest = 0;
 			for(int i = 0;i<StudentCCA.size();i++) {
@@ -629,6 +628,7 @@ public class C206_CaseStudy {
 			}
 			return output;
 		}
+		
 	public static void setHeader(String header) {
 		Helper.line(80, "-");
 		System.out.println(header);
