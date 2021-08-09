@@ -145,16 +145,15 @@ public class C206_CaseStudy {
 							}
 						} else if (staffOption == 12) {
 							C206_CaseStudy.viewAllStudentregisteredForCCA(StudentList);
-						} else if (staffOption == 13) {
-
-						}
+						} 
 					}
 				} else {
 					System.out.println("Username and password invalid!");
 				}
 			} else if (option == 2) {
 				int registrationID = Helper.readInt("Enter Registration ID > ");
-				boolean correct = C206_CaseStudy.accountLogin(registrationID, ParentAccountList, StudentAccountList);
+				int studentID = Helper.readInt("Enter student ID > ");
+				boolean correct = C206_CaseStudy.accountLogin2(registrationID, ParentAccountList, StudentAccountList,studentID);
 				if (correct) {
 					int accountOption = -1;
 					while (accountOption != 3) {
@@ -497,7 +496,7 @@ public class C206_CaseStudy {
 			}
 			return output;
 		}
-// --------------------------------Retrieve All CCA
+// --------------------------------Retrieve All CCA Category
 	// Details------------------------------------//
 	public static String retrieveAllCCACategory(ArrayList<String> categoryList) {
 		String output = "";
